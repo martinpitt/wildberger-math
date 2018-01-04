@@ -28,6 +28,9 @@ Basic Definitions
 (Affine) Point
 :    $A:=[x,y]$ -- pair of rational numbers
 
+Midpoint of two points
+:    The midpoint of $[r, s]$ and $[t, u]$ is $[\frac{r+t}{2}, \frac{s+u}{2}]$.
+
 Line
 :    linear equation in the variables $x$ and/or $y$, of the form $ax+by=c$
 
@@ -49,6 +52,9 @@ Basic Relations
 
 Incidence
 :   The point $[x_0,y_0]$ is incident with the line $ax+by=c \Leftrightarrow ax_0 + by_0 = c$
+
+Parallelism
+:   The lines $l: ax+by=c$ and $h: dx+ey=f$ are parallel  $\Leftrightarrow ae-bd=0$
 
 Basic concepts of area
 ======================
