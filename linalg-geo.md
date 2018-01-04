@@ -61,7 +61,7 @@ Reflection conjugation
 
 Rotation around $\vec{0}$
 :    Definition should be independent of any prior Euclidean/physical
-     intuition. → A rotation is a composition of two reflections.
+     intuition. $\rightarrow$ A rotation is a composition of two reflections.
      $R_{\vec{v_1},\vec{v_2}} := R_{\vec{v_2}} \circ R_{\vec{v_1}}$
 
 Theorems
@@ -85,7 +85,7 @@ Lines can be represented in three forms:
  - point-normal form: through point $A$ ($\vec{a}$) with normal
    $\vec{n}=\scriptsize\left(\begin{array}{c}a\\b\end{array}\right)$:
    $\vec{n}\cdot(\vec{x}-\vec{a})=0$
-   → $\vec{n}\cdot\vec{a}=c$
+   $\rightarrow$ $\vec{n}\cdot\vec{a}=c$
 
  - parameterized: through point $A$ ($\vec{a}$) with direction
    $\vec{v}=\scriptsize\left(\begin{array}{c}-b\\a\end{array}\right)$:
@@ -164,7 +164,7 @@ Planes can be represented in three forms:
  - point-normal form: through point $A$ ($\vec{a}$) with normal
    $\vec{n}=\scriptsize\left(\begin{array}{c}a\\b\\c\end{array}\right)$:
    $\vec{n}\cdot(\vec{x}-\vec{a})=0$
-   → $\vec{n}\cdot\vec{a}=d$
+   $\rightarrow$ $\vec{n}\cdot\vec{a}=d$
 
  - parameterized: through point $A$ ($\vec{a}$) with directions
    $\vec{v}$ and $\vec{w}$:
