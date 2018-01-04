@@ -1,0 +1,505 @@
+% for print:
+\documentclass[DIV16,halfparskip]{scrartcl}
+% for ebook:
+%\documentclass[DIV35,halfparskip,papersize,paper=123mm:93mm,8pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{eucal}
+\usepackage{amssymb}
+\usepackage[pdftex,bookmarks,colorlinks,urlcolor=blue]{hyperref}
+
+\newcommand{\nullcm}{\mathcal C}
+\newcommand{\nullconic}{$\nullcm$ }
+\newcommand{\C}{\!\!:\!\!}
+
+\begin{document}
+\title{Universal Hyperbolic Geometry}
+\subtitle{Summary of N. J. Wildberger's online lecture series\\
+          \url{http://www.youtube.com/watch?v=EvP8VtyhzXs}}
+      \author{Martin Pitt (\texttt{martin@piware.de})}
+      \date{}
+\maketitle
+
+This builds on top of the notation and concepts of my article ``Projective
+Geometry''\\ (\url{http://www.piware.de/docs/projective-geometry.pdf})
+
+\section{Notation}
+\begin{description}
+    \item [Conics:] intersections of a (double-sided) cone with a plane: point,
+        circle, elipse, parabola, hyperbola (consists of two separate parts)
+    \item [Null conic:] Single fixed given circle or other conic; symbol \nullconic
+    \item [Points:] points have lower-case variables ($a$, $p$); points
+        on \nullconic have lower-case greek variables ($\alpha$,
+        $\eta$)
+        algebraic coordinate notation: $a = [x]$ (one-dimensional), $a = [x,y]$
+        (two-dimensional)
+    \item [Lines:] lines have upper-case variables ($A$, $B$); tangents on
+        \nullconic have upper-case greek variables ($\Gamma$);
+        algebraic coordinate notation: $A := (a\C b\C c)$ representing $ax+by=c$
+\end{description}
+
+\section{Harmonic conjugates}
+\url{http://www.youtube.com/watch?v=t7oXlrcPBb4}
+
+Four collinear points $a, b, c, d$ are a \textbf{harmonic range} if $a$ and $c$
+are \textbf{harmonic conjugates} to $b$, $d$, i.~e. if they divide $\overline{bc}$
+internally and externally by the same ratio:
+    $ \frac{\vec{ab}}{\vec{ad}} = -\frac{\vec{cb}}{\vec{cd}}$
+
+In that case, $b$ and $d$ are then harmonic conjugates to $a$ and $c$:
+    $ \frac{\vec{ba}}{\vec{bc}} = -\frac{\vec{da}}{\vec{dc}}$ 
+
+Note: $\vec{ab}$ measures displacements on a linear scale, not distances.
+(affine geometry only, no units)
+
+\begin{description}
+    \item[Harmonic Ranges Theorem:] The image of a harmonic range under a
+    projection from a point onto another line is another harmonic range.\\
+    $\to$ harmonic ranges are not dependent on the choice of a scale (affine
+    geometry), but are really part of projective geometry
+\end{description}
+
+If $a, b, c, d$ are a harmonic range, and $p$ a point not on the line $abcd$,
+then the four lines $ap, bp, cp, dp$ are a \textbf{harmonic pencil}. By the
+previous theorem, the intersections of any line through these four lines are
+harmonic ranges.
+
+\begin{description}
+    \item [Harmonic Pole/polar Theorem:] For a point $a$ and any secant
+        through $a$ that meets \nullconic at two points $\beta$, $\gamma$ there
+        is a point $c = (\beta\gamma)a^\perp$. The points $a, \beta, c, \delta$ are
+        a harmonic range.
+    \item [Harmonic Bisectors Theorem:] If $C$, $D$ are the two bisectors of
+        two non-parallel lines $A$, $B$, then $A, C, B, D$ is a harmonic pencil.
+    \item [Harmonic Vectors Theorem:] If $\vec{a}, \vec{b}$ are linearly
+        independent vectors, then the lines spanned by $\vec{a}, \vec{b}$ are
+        harmonic conjugates to the lines spanned by $\vec{a}+\vec{b}, \vec{a}-\vec{b}$
+    \item [Harmonic Quadrangle Theorem:] If $\overline{pqrs}$ is a quadrangle,
+        find the two intersections $a = (ps)(qr)$ and $c = (pq)(rs)$ and then
+        $b = (pr)(ac)$, $d = (sq)(ac)$. Then $a, b, c, d$ are a harmonic range.
+\end{description}
+
+\section{Cross ratios}
+\url{http://www.youtube.com/watch?v=JJbh0iJ1Agc}
+
+\textbf{Cross ratio} of four collinear points $a, b, c, d$:
+
+\[ R(a,b:c,d) := \frac{\vec{ac}}{\vec{ad}} ~ / ~ \frac{\vec{bc}}{\vec{bd}}
+    \quad = \quad \frac{a-c}{a-d} ~ / ~ \frac{b-c}{b-d}\]
+
+$a, b, c, d$ are a harmonic range if $R(a,b:c,d) = -1$.
+
+\begin{description}
+    \item[Cross-ratio Transformation Theorem:] If $R(a,b:c,d) = \lambda$ then
+
+        \[ R(b,a:c,d) = R(a,b:d,c) = \frac{1}{\lambda}\] and
+        \[ R(a,c:b,d) = R(d,b:c,a) = 1-\lambda \]
+
+    Four points determine 24 possible cross ratios, but only 6 will generally be
+    different (permutations of $\lambda$, $\frac{1}{\lambda}$, $1-\lambda$,
+    $\frac{1}{1-\lambda}$, $\frac{\lambda-1}{\lambda}$,
+    $\frac{\lambda}{\lambda-1}$).
+
+    \item[Cross-ratio Theorem:] The cross ratio is invariant under projection
+        from a point $p$ to another line $L$: With $a':=(pa)L$, $b':=(pb)L$,
+        $c':=(pc)L$, $d':=(pd)L$:
+
+        \[ R(a,b:c,d) = R(a',b':c',d') \]
+
+        Therefore the cross-ratio can be transferred to lines:
+
+        \[ R(pa, pb, pc, pd) := R(a,b,c,d) \]
+
+    \item [Chasles Theorem:] If $\alpha, \beta, \gamma, \delta$ are fixed
+        points on a null conic \nullconic and $\eta$ a fifth point on
+        \nullconic, then $R(\alpha\eta,\beta\eta:\gamma\eta,\delta\eta)$ is
+        independent of the choice of $\eta$.
+
+\end{description}
+
+\clearpage
+\section{Introduction to hyperbolic geometry}
+\url{http://www.youtube.com/watch?v=UXQas-B5ObQ}
+
+\subsection{Definitions}
+\begin{description}
+    \item [Hyperbolic geometry]: Geometry on a projective plane and a single
+        fixed given circle \nullconic; only tool is a straightedge
+    \item [Duality:] Terminology of pole and polar get replaced by simply
+        \textbf{duality}: the dual of a point $a$ is the line $a^\perp$, and
+        vice versa; points and lines are completely dual concepts
+    \item [Line perpendicularity:] $A\perp B \Leftrightarrow B^\perp \in A
+        \Leftrightarrow A^\perp \in B$ ($A$ is p. to $B$ if $A$ passes through the dual of $B$)
+    \item [Point perpendicularity:] $a\perp b \Leftrightarrow a\in b^\perp
+        \Leftrightarrow b\in a^\perp$ ($a$ is p. to $b$ if $a$ lies on the dual of $b$)
+    \item [Quadrance between points:] $q(a_1,a_2) := R(a_1,b_2:a_2,b_1)$
+        with $b_1:=(a_1a_2)a_1^\perp$ and $b_2:=(a_1a_2)a_2^\perp$
+    \item [Spread between lines:] $S(A_1,A_2) := R(A_1,B_2:A_2,B_1)$ with
+        $B_1:=(A_1A_2)A_1^\perp$ and $B_2:=(A_1A_2)A_2^\perp$
+\end{description}
+
+\subsection{Basic theorems}
+\begin{description}
+    \item [Quadrance--Spread duality:] \( q(a_1,a_2) = S(a_1^\perp,a_2^\perp) \)
+
+    \item [Pythagoras:] If $a_1a_3 \perp a_2a_3$, and $q_1 = q(a_2,a_3)$,
+        $q_2 = q(a_1,a_3)$, $q_3 = q(a_1,a_2)$:
+        \( q_3 = q_1 + q_2 - q_1q_2 \)
+
+    If $A_1A_3 \perp A_2A_3$, and $S_1 = S(A_2,A_3)$,
+        $S_2 = S(A_1,A_3)$, $S_3 = S(A_1,A_2)$:
+        \( S_3 = S_1 + S_2 - S_1S_2 \)
+
+    \item [Triple Spread/Quadrance:]\hfill\\
+        If $a_1, a_2, a_3$ are collinear:
+        \( (q_1+q_2+q_3)^2 = 2(q_1^2+q_2^2+q_3^2) + 4q_1q_2q_3 \)
+
+        If $A_1, A_2, A_3$ are concurrent:
+        \( (S_1+S_2+S_3)^2 = 2(S_1^2+S_2^2+S_3^2) + 4S_1S_2S_3 \)
+
+    \item [Spread Law:] For a triangle: $\frac{S_1}{q_1} = \frac{S_2}{q_2} = \frac{S_3}{q_3}$  
+
+    \item [Cross law:] $(q_1q_2S_3 - (q_1 + q_2 + q_3) + 2)^2 = 4(1-q_1)(1-q_2)(1-q_3)$
+
+    \item [Relation to Beltrami-Klein model:]\hfill\\
+        For points $a_1, a_2$ inside \nullconic:
+        \( q(a_1,a_2) = -\sinh^2 d(a_1,a_2) \)
+
+        For lines $A_1, A_2$ inside \nullconic:
+        \( S(A_1,A_2) = \sin^2 \angle(A_1,A_2) \)
+\end{description}
+
+\section{Calculations with Cartesian coordinates}
+\url{http://www.youtube.com/watch?v=YDGUnGGkaTs}, \url{http://www.youtube.com/watch?v=XomxP2pxYnw}
+
+\begin{description}
+    \item [Point/line duality:] \(a=[x_0,y_0] \quad\Leftrightarrow\quad a^\perp=(x_0:y_0:1) \)
+
+    \item [Point on null circle:] Parameterized by $t\in\mathbb{Q}$:
+        \( e(t) := \left[\frac{1-t^2}{1+t^2}, \frac{2t}{1+t^2}\right] \)\\
+        This reaches any point except $[-1,0]$, which corresponds to $e(\infty)$
+
+    \item [Line through points:] \( [x_1,y_1] [x_2,y_2] =
+         (y_1-y_2 : x_2-x_1 : x_2y_1-x_1y_2) \)
+
+    \item [Line through null points:] \( e(t_1)e(t_2) = 
+        (1-t_1t_2 : t_1+t_2 : 1+t_1t_2) \)
+
+   \item [Line relation to \nullconic:] The line $(a:b:c)$
+       \begin{itemize}
+            \item is tangent to \nullconic $\Leftrightarrow a^2+b^2=c^2$ 
+            \item meets \nullconic at two points $\Leftrightarrow a^2+b^2-c^2$
+                is a square
+            \item does not meet \nullconic $\Leftrightarrow a^2+b^2-c^2$
+                is a non-square (negative or no rational root)
+       \end{itemize}
+
+    \item [Quadrance:] If $a_1=[x_1,y_1]$ and $a_2=[x_2,y_2]$, then
+        \( q(a_1,a_2) = 1 - \frac{(x_1x_2 + y_1y_2 - 1)^2}{(x_1^2+y_1^2-1)(x_2^2+y_2^2-1)} \)
+
+    \item [Spread:] If $L_1=(l_1:m_1:n_1)$ and $L_2=(l_2:m_2:n_2)$, then
+        \( S(L_1,L_2) = 1 - \frac{(l_1l_2 + m_1m_2 - n_1n_2)^2}
+                                 {(l_1^2+m_1^2-n_1^2)(l_2^2+m_2^2-n_2^2)} \)
+
+    \item [Point perpendicularity:]
+        \( [x_1,y_1]\perp[x_2,y_2] ~\Leftrightarrow~ x_1x_2 + y_1y_2 - 1 = 0 \)
+
+    \item [Line perpendicularity:]
+        \( (l_1:m_1:n_1)\perp(l_2:m_2:n_2) ~\Leftrightarrow~ l_1l_2 + m_1m_2 - n_1n_2 = 0 \)
+\end{description}
+
+\section{Calculations with homogenous coordinates}
+\url{http://www.youtube.com/watch?v=tk58sBLWzHk},
+\url{http://www.youtube.com/watch?v=N2T0bg_DJLQ},
+\url{http://www.youtube.com/watch?v=PSFr6_EhchI}
+
+We use the relativistic conic matrix
+$A=\tiny\left[\begin{array}{ccc}1 & 0 & 0\\ 0 & 1 & 0\\ 0 & 0 & -1\end{array}\right]$
+to define the dot product for hyperbolic geometry. This defines
+the unit circle $X^2+Y^2=1$ in the viewing plane, corresponding to the cone
+$(\frac{x}{z})^2 + (\frac{y}{z})^2 = 1 \Rightarrow x^2+y^2-z^2=0$ in
+$\mathbb{A}^3$.
+
+\begin{description}
+    \item[(Hyperbolic) Point:] a proportion $a:=[x\C y\C z]$ with
+        $x,y,z\in\mathbb{Q}$ and not all zero
+    \item[(Hyperbolic) Line:] a proportion $L:=(l\C m\C n)$ with
+        $l,m,n\in\mathbb{Q}$ and not all zero
+    \item[Duality:] \(a=[x\C y\C z] \Leftrightarrow a^\perp=(x\C y\C z) \qquad
+        L=(l\C m\C n) \Leftrightarrow L^\perp=[l\C m\C n] \)
+    \item[Line/Point Incidence:] [$x$:$y$:$z$] lies on ($l$:$m$:$n$)
+        $\Leftrightarrow$ ($l$:$m$:$n$) goes through [$x$:$y$:$z$]
+        $\Leftrightarrow$ $lx+my-nz=0$
+    \item[Line through two points:] \([x_1\C y_1\C z_1][x_2\C y_2\C z_2] =
+        (y_1z_2-y_2z_1 : z_1x_2-z_2x_1 : x_2y_1-x_1y_2) \)
+    \item[Point on two lines:] \( (l_1\C m_1\C n_1) (l_2\C m_2\C n_2) = 
+        [m_1n_2-m_2n_1 : n_1l_2-n_2l_1 : l_2m_1-l_1m_2] \)
+
+    \item [Quadrance:] If $a_1=[x_1\C y_1\C z_1]$ and $a_2=[x_2\C y_2\C z_2]$, then
+        \( q(a_1,a_2) = 1 - \frac{(x_1x_2 + y_1y_2 - z_1z_2)^2}{(x_1^2+y_1^2-z_1^2)(x_2^2+y_2^2-z_2^2)} \)
+
+        $a_1 \perp a_2 \;\Leftrightarrow\; q(a_1,a_2) = 1$
+
+    \item [Spread:] If $L_1=(l_1:m_1:n_1)$ and $L_2=(l_2:m_2:n_2)$, then
+        \( S(L_1,L_2) = 1 - \frac{(l_1l_2 + m_1m_2 - n_1n_2)^2}
+                                 {(l_1^2+m_1^2-n_1^2)(l_2^2+m_2^2-n_2^2)} \)
+
+        $L_1 \perp L_2 \;\Leftrightarrow\; S(L_1,L_2) = 1$
+\end{description}
+
+\section{Triangle geometry}
+\url{http://www.youtube.com/watch?v=PbA4Js3qKOQ}, \url{http://www.youtube.com/watch?v=Drs8hUPzRP0}
+
+\begin{description}
+    \item [Side:] A side $\overline{a_1a_2}$ is a set of two points $\{a_1,a_2\}$.
+
+    \item [Vertex:] A vertex $\overline{L_1L_2}$ is a set of two lines
+        $\{L_1,L_2\}$.
+
+    \item [Couple:] A couple $\overline{aL}$ is a set consisting of a point and
+        a line: $\{a, L\}$. A couple is \textbf{dual} if $a = L^\perp$.
+
+    \item [Triangle:] A triangle $\overline{a_1a_2a_3}$ is a set of three
+        non-collinear points $\{a_1, a_2, a_3\}$. A triangle is \textbf{dual}
+        if one of its points is dual to its opposite side.
+
+    \item [Dual trilateral:] $\overline{a_1a_2a_3}^\perp :=
+        \overline{a_1^\perp a_2^\perp a_3^\perp}$ (similar for dual triangle)
+
+    \item [Trilateral:] A trilateral $\overline{L_1L_2L_3}$ is a set of three
+        non-concurrent lines $\{L_1, L_2, L_3\}$.
+
+    \item [Altitude Line Theorem:] For any non-dual couple $\overline{aL}$
+        there is an unique line $N$ passing through $a$ and perpendicular to
+        $L$, called \textbf{altitude}. $N=aL^\perp$
+
+    \item [Altitude Point Theorem:] For any non-dual couple $\overline{aL}$
+        there is an unique point $n$ which lies on $L$ and is perpendicular to
+        $a$, called \textbf{altitude point}. $n=a^\perp L = N^\perp$
+
+    \item[Triangle Altitudes:] In a triangle $\overline{abc}$, altitudes are
+        determined in the usual way: e. g. the altitude of $a$ goes through $a$
+        and is perpendicular to $bc$. Thus the altitude of a is $a(bc)^\perp$.
+
+    \item [Orthocenter:] Point $h$ where the three altitudes meet; always exists
+
+    \item [Ortholine:] Line $H$ on which the three altitude points are
+        collinear; $H=h^\perp$
+
+    \item [Desargues Theorem:] In the projective plane, if two triangles
+        $\overline{a_1a_2a_3}$ and $\overline{b_1b_2b_3}$ are perspective from
+        a point $p$ ($a_1b_1$, $a_2b_2$, $a_3b_3$ are concurrent) then they
+        are perspective from a line $L$ (where $(a_1a_2)(b_1b_2)$,
+        $(a_2a_3)(b_2b_3)$, $(a_3a_1)(b_3b_1)$ are collinear). \textbf{Desargues
+        polarity:} $L = \hat{p}$
+
+    \item [Definitions relative to fixed triangle:] \textbf{Orthic axis}
+        $S=\hat{h}$, \textbf{Orthostar} $s=S^\perp$, \textbf{Ortho-axis}
+        $A=hs$, \textbf{Ortho-axis point} $a=A^\perp$ (lies on ortholine)
+
+    \item [Orthic triangle:] Triangle $\overline{b_1b_2b_3}$ of the base points
+        of altitudes of triangle $\overline{a_1a_2a_3}$;
+        $b_1=(a_1h)(a_2a_3)$
+
+    \item [Base center:] A triangle and its dual orthic triangle are
+        perspective from some point, called the \textbf{base center}, i. e. the
+        intersection of all lines through a triangle point with its
+        corresponding dual orthic triangle point. It lies on the ortho-axis $A=hs$.
+
+    \item [Base triple orthocenter theorem:] Suppose that the triangle
+        $\overline{a_1a_2a_3}$ has the orthic triangle $\overline{b_1b_2b_3}$.
+        Suppose that $h_1, h_2, h_3$ are the respective orthocenters of
+        $\overline{a_1b_2b_3}$, $\overline{a_2b_1b_3}$, and
+        $\overline{a_3b_1b_2}$. Then the orthocenter of $\overline{h_1h_2h_3}$
+        is the base center $b$ of $\overline{a_1a_2a_3}$. Also, $b$ is the
+        center of perspectivity between $\overline{a_1a_2a_3}$ and
+        $\overline{h_1h_2h_3}$.
+
+    \item [Quadrea:] $A(\overline{a_1a_2a_3}) = q_1q_2S_3 = q_2q_3S_1 = q_1q_3S_2 = $\\
+       $-\frac{\left|\begin{array}{ccc}x_1 & y_1 & z_1\\x_2 & y_2 & z_2 \\ x_3 & y_3 & z_3\end{array}\right|^2}
+        {(x_1^2 + y_1^2 - z_1^2)(x_2^2 + y_2^2 - z_2^2)(x_3^2 + y_3^2 - z_3^2)}$
+
+        (most important triangle invariant)
+
+    \item [Equilateral Triangle Theorem:] If a triangle has three equal
+        non-zero quadrances $q$, then it also has three equal spreads $S$, and
+        $(1-Sq)^2=4(1-S)(1-q)$.
+
+    \item [Thales Theorem:] Immediately following from the spread law: in a
+        right triangle with $S_3=1$:\\
+        $S_1=\frac{q_1}{q_3}$ and $S_2=\frac{q_2}{q_3}$.
+
+        Corollary: If $h_3$ is the quadrance of the altitude of $a_3$ to
+        $a_1a_2$, then the quadrea $A=h_3q_3$. (Similar for the other two
+        altitudes)
+
+    \item [Napier's rules:] In a right triangle ($S_3=1)$, if any two of
+        $S_1, S_2, q_1, q_2, q_3$ are known, the other three follow from
+        Pythagoras' and Thales' theorems.
+\end{description}
+
+\section{Null points and null lines}
+\url{http://www.youtube.com/watch?v=IhEXH5etvog}
+
+\begin{description}
+    \item [Null point:] A point $a=[x\C y\C z]$ is null $\Leftrightarrow$ $a$
+        is incident with $a^\perp$ $\Leftrightarrow$ $x^2+y^2-z^2=0$
+    \item [Null line:] A line $L=(l\C m\C n)$ is null $\Leftrightarrow$ $L$
+        is incident with $L^\perp$ $\Leftrightarrow$ $l^2+m^2-n^2=0$
+    \item [Null point parameterization:] \( \alpha = e(t\C u) := [u^2-t^2 : 2ut : u^2+t^2] \)
+    \item [Null line parameterization:] \( \Phi = E(t\C u) := (u^2-t^2 : 2ut : u^2+t^2) \)
+    \item [Join of null points:] \( e(t_1\C u_1)e(t_2\C u_2) = 
+        (u_1u_2-t_1t_2 : t_1u_2+t_2u_1 : u_1u_2 + t_1t_2) \)
+    \item [Meet of null lines:] \( E(t_1\C u_1)E(t_2\C u_2) = 
+        [u_1u_2-t_1t_2 : t_1u_2+t_2u_1 : u_1u_2 + t_1t_2] \)
+
+\end{description}
+
+\section{Reflections}
+\url{http://www.youtube.com/watch?v=faPCRHyzPGM},
+\url{http://www.youtube.com/watch?v=elDCJmDQBfc}
+
+Unlike the Euclidean plane, the projective plane is not orientable. A
+reflection $\sigma_a$ in a point $a$ is the same as a reflection $\sigma_L$ in
+a line if $a=L^\perp$.
+
+Lines are reflected to lines ($M=\sigma_aL$), null points to null points, null
+lines to null lines.
+
+\begin{description}
+    \item[Construction:]
+    To determine the reflection $c=b\sigma_a$ of a point $b$ in a point $a$:
+
+    \begin{itemize}
+        \item Choose a line through $b$ which crosses \nullconic in two points
+            $\beta_1$ and $\beta_2$. ($c$ does not depend on this choice)
+        \item Determine the two other intersections $\gamma_1$ and $\gamma_2$ with
+            \nullconic of the two lines $a\beta_1$ and $a\beta_2$.
+        \item Now $c=(ab)(\gamma_1\gamma_2)$.
+    \end{itemize}
+
+    \item[Reflection matrix:] A point $a=[x\C y\C z]$ defines a reflection
+        matrix
+    \( m_a = \left[\begin{array}{cc}y & x+z\\ x-z & -y\end{array}\right] \)
+
+        For any $m_a$: $m_a^2 = \mathbf{1}$, so that $m_a^{-1} = m_a$
+
+        For null points $\alpha=e(t:u)$:
+       \( m_\alpha = \left[\begin{array}{cc}tu & u^2 \\ -t^2 & -tu\end{array}\right] 
+        = \left[\begin{array}{cc}0 & 1 \\ -1 & 0\end{array}\right]
+          \left[\begin{array}{c}t \\ u\end{array}\right] \left[\begin{array}{cc}t & u\end{array}\right]
+        \)
+
+        For any $m_\alpha$: $m_\alpha^2 = \mathbf{0}$, $\mathrm{det}\;m_\alpha = 0$
+
+    \item [Reflection of null points:] With projective linear algebra, a
+        reflection at the point $a=[x\C y\C z]$ sends the null point
+        $\alpha_1=e(t_1\C u_1)$ to another null point $\alpha_2=e(t_2\C u_2)$.
+        Then $[t_2 u_2] = [t_1 u_1]\: m_a$. Also, $m_{\alpha_2} = m_\alpha
+        m_{\alpha_1} m_\alpha$ (reflection matrix conjugation theorem).
+
+    \item [Reflection of an arbitrary point:] 
+        $c=b\sigma_a \;\Leftrightarrow\; m_c = m_a m_b m_a$
+
+    \item [Null reflection theorem:]
+        If $\alpha$ is a null point, then $b\sigma_\alpha = \alpha$ for any
+        point $b$. $m_\alpha m_b m_\alpha = m_\alpha$.
+
+    \item [Matrix perpendicularity theorem:]
+        For any points $a, b$: \(a\perp b \;\Leftrightarrow\; \mathrm{tr}(m_am_b) = 0 \)
+
+    \item [Reflection preserves perpendicularity:] For any two points $b, c$,
+        and a non-null point $a$:\\
+        \(b\perp c \;\Leftrightarrow\; b\sigma_a \perp c\sigma_a\)
+
+    \item [Reflection preserves lines:] If $a$ is a non-null point, then $b, c,
+        d$ are collinear $\Leftrightarrow$ $b\sigma_a, c\sigma_a, d\sigma_a$
+        are collinear.
+\end{description}
+
+\section{Midpoints and bisectors}
+\url{http://www.youtube.com/watch?v=gYqp_m7at2}
+
+\begin{description}
+    \item [Midpoint:] The non-null point $a$ is a midpoint of the side
+        $\overline{bc} \;\Leftrightarrow\; b\sigma_a = c
+        \;\Leftrightarrow\; c\sigma_a = b$\\
+        In general there are two different points with that property for
+        $\overline{bc}$, if both points are interior or exterior.
+
+    \item [Geometrical construction of midpoints:] For points $b, c$:
+        \begin{itemize}
+            \item Construct $(bc)^\perp$
+            \item Construct the lines $b(bc)^\perp$ and $c(bc)^\perp$, yielding
+                four null points $\alpha$, $\beta$, $\gamma$, $\delta$
+            \item The other two diagonal points of
+                $\overline{\alpha\beta\gamma\delta}$ are the two midpoints of
+                $\overline{bc}$.
+        \end{itemize}
+
+        Sometimes that constructions does not work because $b(bc)^\perp$ and
+        $c(bc)^\perp$ don't meet \nullconic. In that case:
+        \begin{itemize}
+            \item Construct $b^\perp$ and $c^\perp$, which meet \nullconic in
+                four null points $\alpha$, $\beta$, $\gamma$, $\delta$
+            \item The other two diagonal points of
+                $\overline{\alpha\beta\gamma\delta}$ are the two midpoints of
+                $\overline{bc}$.
+        \end{itemize}
+
+    \item [Bisector:] $A$ is a bisector of the vertex $\overline{BC}$
+        $\Leftrightarrow$ $A^\perp$ is a midpoint of side
+        $\overline{B^\perp C^\perp}$
+
+\end{description}
+
+\section{The J function, SL(2) and the Jacobi identity}
+\url{http://www.youtube.com/watch?v=f68eYuDCsjw}
+
+\begin{description}
+    \item[SL(2)]: Lie algebra/group of 2x2 matrices
+    $A=\small\left(\begin{array}{cc}a&b\\c&d\end{array}\right)$ with $tr(A) = 0$ and a
+    \textbf{bracket} operation\linebreak $[A,B]:= AB-BA$ (closed operation as
+    $tr(AB-BA) = tr(AB)-tr(BA) = 0$)
+
+    \item[Properties of bracket operation:] $[]$ is not associative, and
+        anticommutative ($[A,B] = -[B,A]$)
+
+    \item[Jacobi identity:] $[[A,B],C] + [[B,C],A] + [[C,A],B] = 0$
+
+    \item[Projective matrix algebra:] If $a,b$ are projective matrices, scaling
+        with non-zero scalars does not change the matrix. $m+n$ is
+        \emph{not} well defined. The product $ab$ and bracket $[a,b] = ab-ba$
+        are well defined.
+
+    \item[Bracket theorem:] If $a$ and $b$ are distinct points:$[m_a,m_b] =
+        m_c$ with $c=(ab)^\perp$\\
+        The bracket operation gives a multiplication of points and computes
+        their join: $[a,b] \simeq (ab)^\perp$. It is commutative, as the
+        negative of a projective matrix is identical to the matrix.
+
+    \item [Meaning of Jacobi identity:] For three points $a, b, c$ the term
+        $[[a,b],c]$ is the altitude point (dual of the altitude) of $c$ to
+        $ab$. As all three altitudes/altitude points sum up to 0, they are linearly
+        dependent and thus concurrent/collinear. $\Rightarrow$ simplified proof
+        that ortholine/orthocenter always exist.
+\end{description}
+
+
+\section{Miscellaneous}
+\begin{description}
+    \item [Zero Quadrance Theorem:] If $a_1, a_2$ are distinct points, then
+        $q(a_1,a_2) = 0$ $\Leftrightarrow$ $a_1a_2$ is a null line.
+    \item [Zero Spread Theorem:] If $L_1, L_2$ are distinct lines, then
+        $S(L_1,L_2) = 0$ $\Leftrightarrow$ $L_1L_2$ is a null point.
+    \item [Right Parallax Theorem:] If a right triangle $\overline{a_1a_2a_3}$
+        has spreads $S_1=0$ (i. e. $a_1$ is a null point), $S_2 := S \neq 0$,
+        and $S_3=1$, then it will have only one defined quadrance
+        $q=q(a_2,a_3)=\frac{S-1}{S}$.
+    \item [Isosceles Parallax Theorem:] If $\overline{a_1a_2a_3}$ is a non-null
+        isosceles triangle with $S_1=0$ (i. e. $a_1$ is a null point) and $S_2
+        = S_3 := S$, then $q=q(a_2,a_3)=\frac{4(S-1)}{S^2}$.
+\end{description}
+
+\end{document}
+
